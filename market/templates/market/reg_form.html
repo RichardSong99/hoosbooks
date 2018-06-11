@@ -1,0 +1,27 @@
+<head>
+    {% load staticfiles %}
+    <!--load css styles-->
+    <link rel="stylesheet" href="{% static "styles.css" %}">
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}">
+    <title>HoosBooks</title>
+
+</head>
+
+<body>
+<!--icon bar-->
+{% include "market/iconbar.html" %}
+
+<h3>Register</h3>
+<form method = 'post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type ="submit">Register</button>
+</form>
+
+{{message}}
+
+<!--footer-->
+<hr>
+{% include "market/footer.html" %}
+
+</body>

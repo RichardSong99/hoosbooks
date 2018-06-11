@@ -1,0 +1,30 @@
+<head>
+{% load staticfiles %}
+
+<!--load css styles-->
+<link rel="stylesheet" href="{% static "styles.css" %}">
+<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+<title>HoosBooks</title>
+
+</head>
+
+<body>
+<!--icon bar-->
+{% include "market/iconbar.html" %}
+
+<h3>Login</h3>
+<form method = 'post'>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type ="submit">Login</button>
+</form>
+
+{% if display_error %}
+    Error. Try again please. 
+{% endif %}
+
+<!--footer-->
+<hr>
+{% include "market/footer.html" %}
+
+</body>

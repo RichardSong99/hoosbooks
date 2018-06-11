@@ -1,0 +1,27 @@
+<head>
+{% load staticfiles %}
+
+<!--load css styles-->
+<link rel="stylesheet" href="{% static "styles.css" %}">
+<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+<title>HoosBooks</title>
+
+</head>
+
+<body>
+<!--icon bar-->
+{% include "market/iconbar.html" %}
+<h3>Item Form</h3>
+
+<div class="container">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type ="submit">Submit</button>
+    </form>
+</div>
+
+<hr>
+{% include "market/footer.html" %}
+
+</body>

@@ -1,0 +1,51 @@
+<head>
+{% load staticfiles %}
+
+<!--load css styles-->
+<link rel="stylesheet" href="{% static "styles.css" %}">
+<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+<title>HoosBooks</title>
+
+</head>
+
+<body>
+<!--icon bar-->
+{% include "market/iconbar.html" %}
+
+<h3>About HoosBooks</h3>
+<div class="flexeddivs">
+    <div class="left">
+    <h4>The Mission</h4>
+    <p class="mission">
+        To empower the pursuit of learning by connecting all students to the exchange of books and of the ideas therein. 
+    </p>
+    <h4>The Story</h4>
+    <p class="story">On Friday May 11, 2018, the idea of HoosBooks was born when my friend and Chi Alpha Elder Benjamin Groff, 
+        in his final words to me, decried the woeful disarray of the Facebook page on which UVA students were then exchanging textbooks 
+        with each other. Sensing that my incomplete yet functional knowledge of computer science could be of use, on the train ride home the 
+        selfsame day I made it my mandate to deliver to my fellow Hoos a new marketplace for textbooks erected on two principles: efficiency 
+        of searching and completeness of information. <br/><br/>
+        Having completed the project on my study abroad trip in Europe, today I invite all students in the University of Virginia to use 
+        HoosBooks. Although this platform is far from perfect, I hope that you will find it to be a significant improvement from the Facebook 
+        page and a useful tool in your search for well-priced textbooks every semester. Thank you.<br/><br/>
+        -Richard Song, UVA Class of 2021
+    </p>
+    </div>
+
+    <div class="right">
+        <h4>Suggestions for Improvement</h4>
+        {{ message }}
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type ="submit">Submit</button>
+        </form>
+    </div>
+
+</div>
+
+<!--footer-->
+<hr>
+{% include "market/footer.html" %}
+
+</body>

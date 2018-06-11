@@ -1,0 +1,51 @@
+<!--table delineation of item details-->
+{% autoescape off %}
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Information</th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr>
+                <td>Title</td>
+                <td>{{item.title.title}}</td>
+            </tr>
+            <tr>
+                <td>Author</td>
+                <td>{{item.author.title}}</td>
+            </tr>
+            <tr>
+                <td>Quality of book</td>
+                <td>{{item.quality.title}}</td>
+            </tr>
+            <tr>
+                <td>Price suggested by seller</td>
+                <td>${{item.price}}</td>
+            </tr>
+            <tr>
+                <td>Name of seller</td>
+                <td>{{item.seller.name.title}}</td>
+            </tr>
+            <tr>
+                <td>Course for which book was used</td>
+                <td>{{item.course_dept.upper}} {{item.course_number}}</td>
+            </tr>
+            <tr>
+                <td>Date book posted</td>
+                <td>{{item.time_added.date}}</td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td>
+                    {% if item.image %}
+                    <a href="{{ item.image.url }}"><img src = "{{ item.image.url }}"></a>
+                    {% else %}
+                    None
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+{% endautoescape %}

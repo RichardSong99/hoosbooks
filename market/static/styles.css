@@ -1,0 +1,168 @@
+/*background navy blue, font Arial */
+body{
+    background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px 16px;
+    color: black;
+}
+
+.mission{
+    font-style: italic;
+    text-align: justify;
+    font-size: 20px;
+    color: #1F497D;
+    width: 90%;
+}
+
+.story{
+    text-align: justify;
+    width: 90%;
+}
+
+h3{
+    color:#1F497D;
+    font-size: 24;
+    text-transform: uppercase;
+}
+
+h4{
+    text-transform: uppercase;
+}
+
+/*mission*/
+span.mission {
+    color:black !important;
+    text-indent: 50px;
+}
+
+.story{
+    color:black !important;
+
+}
+
+/*form labels and text*/
+.form{
+    color:white;
+}
+
+/*button*/
+button[type=submit]{
+    background-color: #ED7D31;
+    border: 0.5px solid white;
+    color: white;
+    padding: 16px 32px;
+    font-weight: bold; 
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+button[type=submit]:hover{
+    background-color: #1F497D;
+}
+
+/*button in table*/
+.tablebutton{
+    background-color: #1F497D !important;
+    color: white !important;
+    height: 100%;
+}
+
+.tablebutton:hover{
+    background-color: #ED7D31 !important;
+}
+
+/*tables*/
+td{
+    color: black;
+    text-align: left;
+    padding: 5px 10px;
+}
+
+tr{
+    background-color: white;
+    border-bottom: 1px solid #1F497D;
+}
+
+tr:hover{
+    background-color: #FCECE8;
+}
+
+th{
+    background-color: #1F497D;
+    color: white;
+    padding: 5px 5px;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+th:hover{
+    cursor: pointer;
+}
+
+table{
+    border-collapse: collapse; 
+}
+
+
+/*image*/
+img{
+    border: 1px solid #1F497D;
+    padding: 2px;
+    width: 150px;
+}
+
+.logo{
+    border:none;
+}
+
+/*divs*/
+.left{
+    flex:1;
+    width: 100%;
+    float: left;
+}
+
+.right{
+    flex:1;
+    width: 100%;
+
+}
+
+.flexeddivs{
+    display:flex;
+}
+
+/*icon bar*/
+.icon-bar{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    background-color: #FCECE8;
+    overflow: auto;
+    display:flex;
+}
+
+.icon-bar button[type=submit]{
+    width: 100%;
+    height: 50px;
+    background-color: #FCECE8;
+    color: #1F497D;
+    border: none;
+    float: left;
+}
+
+.icon-bar button[type=submit]:hover{
+    background-color: #ED7D31;
+    color: white;
+}
+
+/*footer*/
+.footer{
+    text-align: center;
+    position: relative;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+}
+

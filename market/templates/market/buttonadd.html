@@ -1,0 +1,4 @@
+<form action="{% url 'add' seller.id %}" method="get">
+    {% csrf_token %}
+    <button type="submit">Add Item</button>
+</form>

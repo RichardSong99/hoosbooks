@@ -1,0 +1,4 @@
+<form action="{% url 'delete' item.id %}" method="get">
+    {% csrf_token %}
+    <button type="submit" class="tablebutton"><i class="fa fa-trash"></i></button>
+</form>

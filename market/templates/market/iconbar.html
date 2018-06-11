@@ -1,0 +1,36 @@
+<!--Hoos Logo-->
+{% load staticfiles %}
+<img src="{% static "HoosBooksLogo.jpg" %}" class="logo"/>
+
+
+<div class="icon-bar">
+    <!--search page-->
+    <form action="{% url 'search' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">SEARCH <i class="fa fa-search"></i></button>
+    </form>    
+    <!--register-->
+    <form action="{% url 'register' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">REGISTER</button>
+    </form>    
+    <!--login-->    
+    <form action="{% url 'login' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">LOGIN</button>
+    </form> 
+
+    {% if display_logout %}
+    <form action="{% url 'login' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">LOGOUT</button>
+    </form>   
+    {% endif %}
+
+    <!--about page-->
+    <form action="{% url 'about' %}" method="get">
+        {% csrf_token %}
+        <button type="submit">ABOUT</button>
+    </form>
+
+</div>

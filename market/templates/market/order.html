@@ -1,0 +1,42 @@
+<head>
+{% load staticfiles %}
+
+<!--load css styles-->
+<link rel="stylesheet" href="{% static "styles.css" %}">
+<link rel="shortcut icon" href="{% static "favicon.ico" %}">
+<title>HoosBooks</title>
+
+</head>
+
+<body>
+<!--icon bar-->
+{% include "market/iconbar.html" %}
+<!--alert-->
+<p>{{alert}}</p>
+
+<h3>REQUEST FORM</h3>
+
+<div class="flexeddivs">
+<div class="left">
+    <h3>1. Book Information </h3>
+<!--summary of item, presented in table format-->
+{% include 'market/itemsummary.html' with item=item %}
+</div>
+
+<!--Implement order details within the form-->
+<div class="right">
+    <h3>2. Request Book</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type ="submit">Submit</button>
+    </form>
+</div>
+</div>
+
+<!--footer-->
+<hr>
+{% include "market/footer.html" %}
+
+</body>
+

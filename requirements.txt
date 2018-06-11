@@ -1,0 +1,24 @@
+beautifulsoup4==4.6.0
+certifi==2018.4.16
+chardet==3.0.4
+-e git+https://github.com/django/django.git@40ff93310f03dc89a6281a846b1a1ec4cb672bd0#egg=Django
+docopt==0.6.2
+idna==2.6
+Js2Py==0.59
+packaging==17.1
+Pillow==5.1.0
+pipenv==2018.5.18
+pipwin==0.4.3
+pyjsparser==2.5.2
+pyparsing==2.2.0
+PyPrind==2.11.2
+pytz==2018.4
+requests==2.18.4
+robobrowser==0.5.3
+six==1.11.0
+tzlocal==1.5.1
+urllib3==1.22
+virtualenv==16.0.0
+virtualenv-clone==0.3.0
+virtualenvwrapper-win==1.2.5
+Werkzeug==0.14.1

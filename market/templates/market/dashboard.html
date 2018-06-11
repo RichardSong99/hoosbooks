@@ -1,0 +1,76 @@
+<head>
+        {% load staticfiles %}
+        <!--load css styles-->
+        <link rel="stylesheet" href="{% static "styles.css" %}">
+        <link rel="shortcut icon" href="{% static "favicon.ico" %}">
+        <title>HoosBooks</title>
+    
+        {% block js %}
+        <script type="text/javascript" src="{% static "tablesorter/jquery-latest.js" %}"></script>
+        <script type="text/javascript" src="{% static "tablesorter/jquery.tablesorter.js" %}"></script>
+        <script id="js" type="text/javascript">
+            $(document).ready(function()
+                {
+                    $("#dashtable").tablesorter();
+                }
+            );
+        </script>
+        {% endblock %}
+    </head>
+
+
+<body>
+<!--icon bar-->
+{% include "market/iconbar.html" with display_logout=True%}
+<h3>Welcome, {{seller.name}}</h3>
+
+{% if item_list %}
+<!--display items-->
+
+<h4>Your Items</h4>
+
+<table class="tablesorter" id="dashtable">
+<thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Asking Price</th>
+        <th>Quality</th>
+        <th>Buyers Interested</th>
+        <th>Date Listed</th>
+        <th>Edit Details</th>
+        <th>Delist Item</th>
+    </tr>
+</thead>
+<tbody>
+{% for item in item_list %}
+    <tr>
+    <td>{{item.title.title}}</td>
+    <td>{{item.author.title}}</td>
+    <td>${{item.price}}</td>
+    <td>{{item.quality.title}}</td>
+    <td>{{item.buyer.all.count }}</td>
+    <td>{{item.time_added.date}}</td>
+    <td>{% include 'market/buttonedit.html' with item=item %}</td>
+    <td>{% include 'market/buttondelete.html' with item=item %}</td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{%else%}
+
+<p>This is your dashboard. Please add an item using the button below. When you add an item, it becomes searchable in our database and available for buyers to see.</p>
+
+{% endif %}
+
+<br/>
+
+<!--add item-->
+{% include 'market/buttonadd.html' with seller=seller %}
+
+<!--footer-->
+<hr>
+{% include "market/footer.html" %}
+
+</body>

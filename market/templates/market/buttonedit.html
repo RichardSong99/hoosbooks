@@ -1,0 +1,4 @@
+<form action="{% url 'edit' item.id %}" method="get">
+    {% csrf_token %}
+    <button type="submit" class="tablebutton">Edit</button>
+</form>

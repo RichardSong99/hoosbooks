@@ -1,0 +1,80 @@
+<html>
+<head>
+    {% load staticfiles %}
+    <!--load css styles-->
+    <link rel="stylesheet" href="{% static "styles.css" %}">
+    <link rel="shortcut icon" href="{% static "favicon.ico" %}">
+    <title>HoosBooks</title>
+
+    {% block js %}
+    <script type="text/javascript" src="{% static "tablesorter/jquery-latest.js" %}"></script>
+    <script type="text/javascript" src="{% static "tablesorter/jquery.tablesorter.js" %}"></script>
+    <script id="js" type="text/javascript">
+        $(document).ready(function()
+            {
+                $("#searchtable").tablesorter();
+            }
+        );
+    </script>
+    {% endblock %}
+</head>
+
+<body>
+
+<!--icon bar-->
+{% include "market/iconbar.html" %}
+
+<h3>Search page</h3>
+
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type ="submit">FILTER</button>
+    </form>
+</div>
+
+<hr>
+
+<!--if no items found-->
+{%if not item_list %}No results{% endif %}
+
+
+<!--list of items-->
+{% if item_list  %}
+<h4>Results</h4>
+<table class="tablesorter" id="searchtable">
+<thead>
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Price Offered</th>
+        <th>Quality</th>
+        <th>Seller</th>
+        <th>Date Listed</th>
+        <th>Select</th>
+    </tr>
+</thead>
+<tbody>
+{% for item in item_list %}
+    <tr>
+    <td>{{item.title.title}}</td>
+    <td>{{item.author.title}}</td>
+    <td>${{item.price}}</td>
+    <td>{{item.quality.title}}</td>
+    <td>{{item.seller.name.title}}</td>
+    <td>{{item.time_added.date}}</td>
+    <td>{% include 'market/buttonview.html' with item=item %}</td>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<hr>
+{% endif %}
+
+<!--footer-->
+{% include "market/footer.html" %}
+
+</body>
+</html>
